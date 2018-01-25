@@ -3,6 +3,7 @@
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
 	initializePage();
+	projectClick();
 })
 
 /*
@@ -14,10 +15,12 @@ function initializePage() {
 		$("#testjs").text("Please wait...");
 		$(".jumbotron p").addClass("active");
 	});
-
+}
 
 	// Add any additional listeners here
 function projectClick(){
+	$(".project").click(function(e) {
+		e.preventDefault();
 	    var containingProject = $(this).closest(".project");
 	    var description = $(containingProject).find(".project-description");
 	    if (description.length == 0) {
@@ -25,5 +28,5 @@ function projectClick(){
 	    } else {
 	       description.html("<p>Stop clicking on me! You just did it at " + (new Date()) + "</p>");
 	    }
-	}		
-}
+	});
+}		
